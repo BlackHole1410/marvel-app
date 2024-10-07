@@ -1,16 +1,24 @@
 import React from 'react';
-import characters from '../data/characters.json';
-import { CharactersList } from '../components/CharactersList.jsx'
-import { NumberOfCharacters } from '../components/numberofcharacters.jsx';
+import { CharactersList } from "../components/CharactersList";
+import { NumberOfCharacters } from "../components/NumberOfCharacters";
+import { getCharacters } from '../api/characters-api';
 
-function CharactersPage(){
-    document.title='Charcters | Marvel Characters'
+// import characters from '../data/characters.json';
+
+const CharactersPage = () => {
+    // change the title of the page
+    document.title = "Marvel App";
+
+    const characters = getCharacters();
+
     return (
         <>
-          <h1>Marvel Characters</h1>
-          <CharactersList characters={characters} />
-          <NumberOfCharacters characters={characters} />
+            <h2>Marvel Characters</h2>
+            <CharactersList characters={characters} />
+            <br />
+            <NumberOfCharacters characters={characters} />
         </>
-      );
-}
-export default CharactersPage
+    );
+};
+
+export default CharactersPage;
