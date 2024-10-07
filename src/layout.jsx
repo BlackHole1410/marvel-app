@@ -1,5 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router';
+import { NavLink } from 'react-router-dom';
 
 const Layout = () => {
     return (
@@ -7,9 +8,7 @@ const Layout = () => {
             <header>
                 <h1>Marvel App</h1>
                 <nav>
-                    <a href="/">Home</a>
-                    <a href="/about">About</a>
-                    <a href="/contact">Contact</a>
+                    <NavLink to="/">Home</NavLink> - <NavLink to="/about">About</NavLink> - <NavLink to="/contact">Contact</NavLink>
                 </nav>
             </header>
             <main>

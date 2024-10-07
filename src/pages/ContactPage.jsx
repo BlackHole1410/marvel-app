@@ -4,7 +4,7 @@ function ContactPage(){
     return(
         <>
         <h2>Contact us</h2>
-        <p>Feel free to contact us at <a href="mailto:marvelApp@gmail.com"></a></p>
+        <p>Feel free to contact us at <a href="mailto:marvelApp@gmail.com">marvelApp@gmail.com</a></p>
         </>
     );
 }
