@@ -1,10 +1,22 @@
-export function CharacterDetail({ character = {} }) {
-  return (
-    <div>
-      <h2>{character.name}</h2>
-      {character.thumbnail && (<img src= {`${character.thumbnail.path}./standard_large.${character.thumbnail.extension}`} alt={character.name} />)}
-      <p>{character.bio}</p>
-      <p>{character.modified}</p>
-    </div>
-  );
-}
+// src/components/CharacterDetail.jsx
+
+import React from 'react';
+
+const CharacterDetail = ({ character }) => {
+    const { description, thumbnail, modified} = character;
+
+    return (
+        <div>
+            {thumbnail && (
+                <img
+                    src={`${thumbnail.path}/standard_large.${thumbnail.extension}`}
+                    alt={character.name}
+                />
+            )}
+            <p>{description || "No description available."}</p>
+            <p>{modified || "No modification date available."}</p>
+        </div>
+    );
+};
+
+export default CharacterDetail;
