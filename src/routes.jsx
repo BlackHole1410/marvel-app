@@ -1,6 +1,6 @@
 // Importez les fonctions nécessaires depuis characters-api.js
 import { getCharacters, getCharacterById } from './api/characters-api';
-import Layout from "./Layout";
+import Layout from "./layout";
 import AboutPage from "./pages/AboutPage";
 import CharactersPage from "./pages/CharactersPage";
 import ContactPage from "./pages/ContactPage";
