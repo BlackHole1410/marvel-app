@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1730738875907" clover="3.2.0">
+  <project timestamp="1730738875907" name="All files">
+    <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3" elements="5" coveredelements="5" complexity="0" loc="2" ncloc="2" packages="1" files="1" classes="1"/>
+    <file name="characters-api.js" path="C:\Dev logiciel web\S5\Marvel-app\marvel-app\src\api\characters-api.js">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="13" count="4" type="stmt"/>
+    </file>
+  </project>
+</coverage>
