@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1730738875907" clover="3.2.0">
-  <project timestamp="1730738875907" name="All files">
-    <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3" elements="5" coveredelements="5" complexity="0" loc="2" ncloc="2" packages="1" files="1" classes="1"/>
-    <file name="characters-api.js" path="C:\Dev logiciel web\S5\Marvel-app\marvel-app\src\api\characters-api.js">
+<coverage generated="1730740516838" clover="3.2.0">
+  <project timestamp="1730740516839" name="All files">
+    <metrics statements="4" coveredstatements="4" conditionals="5" coveredconditionals="4" methods="4" coveredmethods="4" elements="13" coveredelements="12" complexity="0" loc="4" ncloc="4" packages="2" files="2" classes="2"/>
+    <package name="api">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-      <line num="8" count="1" type="stmt"/>
-      <line num="13" count="4" type="stmt"/>
-    </file>
+      <file name="characters-api.js" path="C:\Dev logiciel web\S5\Marvel-app\marvel-app\src\api\characters-api.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="components">
+      <metrics statements="2" coveredstatements="2" conditionals="5" coveredconditionals="4" methods="1" coveredmethods="1"/>
+      <file name="numberofcharacters.jsx" path="C:\Dev logiciel web\S5\Marvel-app\marvel-app\src\components\numberofcharacters.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="5" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+      </file>
+    </package>
   </project>
 </coverage>
