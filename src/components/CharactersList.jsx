@@ -6,11 +6,9 @@ export function CharactersList({ characters = [] }) {
         <ul id="characters">
             {characters.map((character) => (
                 <li key={character.id}>
-                    <h2>
-                        <Link to={`/characters/${character.id}`} style={{ color: '#333', textDecoration: 'none' }}>
+                    <Link to={`/characters/${character.id}`} style={{ color: '#333', textDecoration: 'none' }}>
                             {character.name}
-                        </Link>
-                    </h2>
+                    </Link>
                 </li>
             ))}
         </ul>
