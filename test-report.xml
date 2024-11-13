@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="C:\Dev logiciel web\S5\Marvel-app\marvel-app\src\pages\AboutPage.test.jsx">
+    <testCase name="AboutPage renders without crashing" duration="46"/>
+    <testCase name="AboutPage sets the document title to &quot;About | Marvel App&quot;" duration="3"/>
+  </file>
+  <file path="C:\Dev logiciel web\S5\Marvel-app\marvel-app\src\components\CharacterDetail.test.jsx">
+    <testCase name="CharacterDetail renders without crashing" duration="47"/>
+    <testCase name="CharacterDetail displays the character image with correct src and alt attributes" duration="30"/>
+    <testCase name="CharacterDetail displays the character description" duration="4"/>
+    <testCase name="CharacterDetail displays &quot;No description available.&quot; when description is not provided" duration="2"/>
+    <testCase name="CharacterDetail displays the character modification date" duration="2"/>
+    <testCase name="CharacterDetail displays &quot;No modification date available.&quot; when modification date is not provided" duration="2"/>
+  </file>
+  <file path="C:\Dev logiciel web\S5\Marvel-app\marvel-app\src\pages\ContactPage.test.jsx">
+    <testCase name="ContactPage renders without crashing" duration="47"/>
+    <testCase name="ContactPage sets the document title to &quot;Contact | Marvel App&quot;" duration="4"/>
+    <testCase name="ContactPage renders the heading &quot;Contact Us&quot;" duration="34"/>
+    <testCase name="ContactPage renders the paragraph with correct text" duration="3"/>
+    <testCase name="ContactPage renders the email link with correct href" duration="9"/>
+    <testCase name="ContactPage renders the email link with correct text" duration="4"/>
+  </file>
+  <file path="C:\Dev logiciel web\S5\Marvel-app\marvel-app\src\pages\CharacterDetailPage.test.jsx">
+    <testCase name="CharacterDetailPage renders without crashing" duration="18"/>
+    <testCase name="CharacterDetailPage displays the character name in the heading" duration="39"/>
+    <testCase name="CharacterDetailPage renders the CharacterDetail component with the correct character prop" duration="4"/>
+  </file>
+  <file path="C:\Dev logiciel web\S5\Marvel-app\marvel-app\src\components\CharactersList.test.jsx">
+    <testCase name="CharactersList renders an empty list when no characters are provided" duration="23"/>
+    <testCase name="CharactersList renders a list of characters" duration="15"/>
+    <testCase name="CharactersList renders character names correctly" duration="6"/>
+    <testCase name="CharactersList applies correct styles to links" duration="19"/>
+  </file>
+</testExecutions>
