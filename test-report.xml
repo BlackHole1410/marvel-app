@@ -1,3 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
+  <file path="C:\Dev logiciel web\S5\Marvel-app\marvel-app\src\components\sortCharacters.test.jsx">
+    <testCase name="sortCharacters sorts characters by name in ascending order" duration="12"/>
+    <testCase name="sortCharacters sorts characters by name in descending order" duration="1"/>
+    <testCase name="sortCharacters sorts characters by modified date in ascending order" duration="0"/>
+    <testCase name="sortCharacters sorts characters by modified date in descending order" duration="0"/>
+    <testCase name="sortCharacters returns unsorted characters if sortBy is invalid" duration="1"/>
+    <testCase name="sortCharacters returns unsorted characters if order is invalid" duration="1"/>
+  </file>
+  <file path="C:\Dev logiciel web\S5\Marvel-app\marvel-app\src\pages\CharactersPage.test.jsx">
+    <testCase name="render CharactersPage component" duration="61"/>
+    <testCase name="handleSortChange updates sortBy state and URL" duration="12"/>
+    <testCase name="handleOrderChange updates order state and URL" duration="7"/>
+  </file>
 </testExecutions>
