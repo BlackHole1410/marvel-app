@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import CharactersPage from './CharactersPage';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -48,4 +48,35 @@ test('render CharactersPage component', () => {
     // expect the number of characters to be in the document
     const numberOfCharactersElement = screen.getByText(`There is ${characters.length} characters`);
     expect(numberOfCharactersElement).toBeInTheDocument();
+});
+test('handleSortChange updates sortBy state and URL', () => {
+    render(<CharactersPage />, { wrapper: BrowserRouter });
+
+    const selectElement = screen.getByLabelText(/Sort by:/i);
+    expect(selectElement.value).toBe('name');
+
+    // Simulate changing the sort by value
+    fireEvent.change(selectElement, { target: { value: 'modified' } });
+
+    // Expect the sortBy state to be updated
+    expect(selectElement.value).toBe('modified');
+
+    // Expect the URL to be updated
+    expect(window.location.search).toBe('?sortBy=modified&order=asc');
+});
+
+test('handleOrderChange updates order state and URL', () => {
+    render(<CharactersPage />, { wrapper: BrowserRouter });
+
+    const selectElement = screen.getByLabelText(/Order:/i);
+    expect(selectElement.value).toBe('asc');
+
+    // Simulate changing the order value
+    fireEvent.change(selectElement, { target: { value: 'desc' } });
+
+    // Expect the order state to be updated
+    expect(selectElement.value).toBe('desc');
+
+    // Expect the URL to be updated
+    expect(window.location.search).toBe('?sortBy=name&order=desc');
 });

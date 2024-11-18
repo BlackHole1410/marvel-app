@@ -1,26 +1,56 @@
-// CetteCette façon de faire fonctionne, mais elle n'est pas optimale. Elle mélange la récupération des données et l'affichage des composants.
-// react_router nous permet de faire mieux en utilisant des hooks pour récupérer les données avant d'afficher le composant et ainsi de séparer récupération des données et affichage.
-// Adapter le code pour utiliser react_router et les hooks comme dans l'exemple du guide, grâce aux concepts de loader et useLoaderData . On appelera directement la fonction getCharacters dans le loader (pas de fonction fetch ).
-
-import { useEffect } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { NumberOfCharacters } from "../components/numberofcharacters";
 import { CharactersList } from "../components/CharactersList";
+import { sortCharacters } from "../components/sortCharacters";
 
 export default function CharactersPage() {
-    const characters = useLoaderData(); // Assurez-vous que cette fonction soit importée correctement
+    const characters = useLoaderData();
+    const navigate = useNavigate();
+    const [sortBy, setSortBy] = useState("name");
+    const [order, setOrder] = useState("asc");
 
-    // Modifier le titre de la page
     useEffect(() => {
-        document.title = "Marvel App"; // Changer le titre de la page
+        document.title = "Marvel App";
     }, []);
+
+    const handleSortChange = (e) => {
+        setSortBy(e.target.value);
+        updateURL(e.target.value, order);
+    };
+
+    const handleOrderChange = (e) => {
+        setOrder(e.target.value);
+        updateURL(sortBy, e.target.value);
+    };
+
+    const updateURL = (sortBy, order) => {
+        navigate(`?sortBy=${sortBy}&order=${order}`);
+    };
+
+    const sortedCharacters = sortCharacters(characters, sortBy, order);
 
     return (
         <div>
             <h2>Marvel Characters</h2>
-            <CharactersList characters={characters}  />
-
-            <NumberOfCharacters characters={characters}  />
+            <div>
+                <label>
+                    Sort by:
+                    <select value={sortBy} onChange={handleSortChange}>
+                        <option value="name">Name</option>
+                        <option value="modified">Date Modified</option>
+                    </select>
+                </label>
+                <label>
+                    Order:
+                    <select value={order} onChange={handleOrderChange}>
+                        <option value="asc">Ascending</option>
+                        <option value="desc">Descending</option>
+                    </select>
+                </label>
+            </div>
+            <CharactersList characters={sortedCharacters} />
+            <NumberOfCharacters characters={sortedCharacters} />
         </div>
     );
 }
