@@ -1,6 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="C:\Dev logiciel web\S5\Marvel-app\marvel-app\src\pages\CharactersPage.test.jsx">
-    <testCase name="render CharactersPage component" duration="62"/>
-  </file>
 </testExecutions>
