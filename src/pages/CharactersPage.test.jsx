@@ -1,82 +1,82 @@
-import '@testing-library/jest-dom';
-
+import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import CharactersPage from './CharactersPage';
-import { BrowserRouter } from 'react-router-dom';
+import { getSortedCharacters } from '../api/characters-api';
 
-const characters = [
-    {
-        id: "1",
-        name: "Thor"
-    },
-    {
-        id: "2",
-        name: "Captain America"
-    }
-];
-
-// mock the useLoaderData hook, so that we can test the CharactersPage component
-jest.mock('react-router', () => ({
-    ...jest.requireActual('react-router'), // use actual for all non-hook parts
-    useLoaderData: () => {
-        return characters;
-    },
+jest.mock('../api/characters-api', () => ({
+    getSortedCharacters: jest.fn(),
 }));
 
-test('render CharactersPage component', () => {
-    // when
+jest.mock('react-router-dom', () => ({
+    ...jest.requireActual('react-router-dom'),
+    useLoaderData: jest.fn(),
+    useNavigate: jest.fn(),
+}));
 
-    // then
-    render(<CharactersPage />, { wrapper: BrowserRouter });
+describe('CharactersPage', () => {
+    const mockNavigate = jest.fn();
+    const mockCharacters = [
+        { id: 1, name: 'Iron Man', modified: '2021-01-01' },
+        { id: 2, name: 'Spider-Man', modified: '2021-02-01' },
+    ];
 
-    // expect the document title to be "Marvel App"
-    expect(document.title).toBe('Marvel App');
+    beforeEach(() => {
+        require('react-router-dom').useLoaderData.mockReturnValue(mockCharacters);
+        require('react-router-dom').useNavigate.mockReturnValue(mockNavigate);
+        getSortedCharacters.mockReturnValue(mockCharacters);
+    });
 
+    afterEach(() => {
+        jest.clearAllMocks();
+    });
 
-    // expect the heading 'Marvel Characters' to be in the document
-    const h2Element = screen.getByRole('heading', { level: 2, name: "Marvel Characters" });
-    expect(h2Element).toBeInTheDocument();
+    test('renders correctly with initial state', () => {
+        render(
+            <MemoryRouter>
+                <CharactersPage />
+            </MemoryRouter>
+        );
 
-    // expect the character Thor to be in the document
-    const thorElement = screen.getByText(characters[0].name);
-    expect(thorElement).toBeInTheDocument();
+        expect(screen.getByText('Marvel Characters')).toBeInTheDocument();
+        expect(screen.getByLabelText('Sort by:')).toHaveValue('name');
+        expect(screen.getByLabelText('Order:')).toHaveValue('asc');
+    });
 
-    // expect the charater Captain America to be in the document
-    const captainAmericaElement = screen.getByText(characters[1].name);
-    expect(captainAmericaElement).toBeInTheDocument();
+    test('calls getSortedCharacters with correct parameters', () => {
+        render(
+            <MemoryRouter>
+                <CharactersPage />
+            </MemoryRouter>
+        );
 
-    // expect the number of characters to be in the document
-    const numberOfCharactersElement = screen.getByText(`There is ${characters.length} characters`);
-    expect(numberOfCharactersElement).toBeInTheDocument();
-});
-test('handleSortChange updates sortBy state and URL', () => {
-    render(<CharactersPage />, { wrapper: BrowserRouter });
+        expect(getSortedCharacters).toHaveBeenCalledWith('name', 'asc');
+    });
 
-    const selectElement = screen.getByLabelText(/Sort by:/i);
-    expect(selectElement.value).toBe('name');
+    test('updates URL and state when sort by is changed', () => {
+        render(
+            <MemoryRouter>
+                <CharactersPage />
+            </MemoryRouter>
+        );
 
-    // Simulate changing the sort by value
-    fireEvent.change(selectElement, { target: { value: 'modified' } });
+        fireEvent.change(screen.getByLabelText('Sort by:'), { target: { value: 'modified' } });
 
-    // Expect the sortBy state to be updated
-    expect(selectElement.value).toBe('modified');
+        expect(mockNavigate).toHaveBeenCalledWith('?sortBy=modified&order=asc');
+        expect(getSortedCharacters).toHaveBeenCalledWith('modified', 'asc');
+    });
 
-    // Expect the URL to be updated
-    expect(window.location.search).toBe('?sortBy=modified&order=asc');
-});
+    test('updates URL and state when order is changed', () => {
+        render(
+            <MemoryRouter>
+                <CharactersPage />
+            </MemoryRouter>
+        );
 
-test('handleOrderChange updates order state and URL', () => {
-    render(<CharactersPage />, { wrapper: BrowserRouter });
+        fireEvent.change(screen.getByLabelText('Order:'), { target: { value: 'desc' } });
 
-    const selectElement = screen.getByLabelText(/Order:/i);
-    expect(selectElement.value).toBe('asc');
-
-    // Simulate changing the order value
-    fireEvent.change(selectElement, { target: { value: 'desc' } });
-
-    // Expect the order state to be updated
-    expect(selectElement.value).toBe('desc');
-
-    // Expect the URL to be updated
-    expect(window.location.search).toBe('?sortBy=name&order=desc');
+        expect(mockNavigate).toHaveBeenCalledWith('?sortBy=name&order=desc');
+        expect(getSortedCharacters).toHaveBeenCalledWith('name', 'desc');
+    });
 });

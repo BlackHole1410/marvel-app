@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { NumberOfCharacters } from "../components/numberofcharacters";
 import { CharactersList } from "../components/CharactersList";
-import { sortCharacters } from "../components/sortCharacters";
+import { getSortedCharacters } from "../api/characters-api";
 
 export default function CharactersPage() {
     const characters = useLoaderData();
@@ -28,7 +28,7 @@ export default function CharactersPage() {
         navigate(`?sortBy=${sortBy}&order=${order}`);
     };
 
-    const sortedCharacters = sortCharacters(characters, sortBy, order);
+    const sortedCharacters = getSortedCharacters(sortBy, order);
 
     return (
         <div>

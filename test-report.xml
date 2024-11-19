@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="C:\Dev logiciel web\S5\Marvel-app\marvel-app\src\api\characters-api.test.js">
-    <testCase name="Characters API getCharacters should return the full list of characters" duration="5"/>
-    <testCase name="Characters API getCharacterById should return the correct character for a given ID" duration="1"/>
-    <testCase name="Characters API getCharacterById should return undefined for an invalid ID" duration="1"/>
-    <testCase name="getSortedCharacters should sort characters by name in ascending order" duration="7"/>
-    <testCase name="getSortedCharacters should sort characters by name in descending order" duration="1"/>
-    <testCase name="getSortedCharacters should sort characters by modified date in ascending order" duration="0"/>
-    <testCase name="getSortedCharacters should sort characters by modified date in descending order" duration="0"/>
+  <file path="C:\Dev logiciel web\S5\Marvel-app\marvel-app\src\pages\CharactersPage.test.jsx">
+    <testCase name="CharactersPage renders correctly with initial state" duration="35"/>
+    <testCase name="CharactersPage calls getSortedCharacters with correct parameters" duration="5"/>
+    <testCase name="CharactersPage updates URL and state when sort by is changed" duration="9"/>
+    <testCase name="CharactersPage updates URL and state when order is changed" duration="5"/>
   </file>
 </testExecutions>
