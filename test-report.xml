@@ -1,9 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="C:\Dev logiciel web\S5\Marvel-app\marvel-app\src\pages\CharactersPage.test.jsx">
-    <testCase name="CharactersPage renders correctly with initial state" duration="35"/>
-    <testCase name="CharactersPage calls getSortedCharacters with correct parameters" duration="5"/>
-    <testCase name="CharactersPage updates URL and state when sort by is changed" duration="9"/>
-    <testCase name="CharactersPage updates URL and state when order is changed" duration="5"/>
-  </file>
 </testExecutions>
