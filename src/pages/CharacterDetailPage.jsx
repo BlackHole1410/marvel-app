@@ -1,17 +1,35 @@
 // src/pages/CharacterDetailPage.jsx
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import CharacterDetail from '../components/CharacterDetail'; // Assurez-vous d'importer ce composant
+import D3PieChart from '../components/D3PieChart';
+import RechartsPieChart from '../components/RechartsPieChart';
 
 const CharacterDetailPage = () => {
+    // retrieve the character using the useLoaderData hook
     const character = useLoaderData();
 
+    useEffect(() => {
+        document.title = `${character.name} | Marvel App`;
+    }, [character]);
+
     return (
-        <div>
-            <h2>{character.name}</h2>
+        <>
             <CharacterDetail character={character} />
-        </div>
+
+            <h2>Capacities</h2>
+            <div style={{ display: 'flex'}}>
+                <div style={{flex: '50%'}}>
+                    <h3>Using D3</h3>
+                    <D3PieChart data={character.capacities} />
+                </div>
+                <div style={{flex: '50%'}}>
+                    <h3>Using Recharts</h3>
+                    <RechartsPieChart data={character.capacities} />
+                </div>
+            </div>
+        </>
     );
 };
 
