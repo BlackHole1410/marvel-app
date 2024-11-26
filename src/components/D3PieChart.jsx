@@ -35,7 +35,7 @@ const drawChart = (data) => {
 
     // Create the arc
     const arc = d3.arc()
-        .innerRadius(radius * 0.5) // This is the size of the donut hole
+        .innerRadius(radius * 0.3) // This is the size of the donut hole
         .outerRadius(radius * 0.8);
 
     // Create the svg, with the right dimensions
