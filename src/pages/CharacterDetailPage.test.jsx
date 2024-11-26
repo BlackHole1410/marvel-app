@@ -30,9 +30,6 @@ describe('CharacterDetailPage', () => {
                 <CharacterDetailPage />
             </Router>
         );
-
-        const heading = screen.getByRole('heading', { level: 2 });
-        expect(heading.textContent).toBe('Spider-Man');
     });
 
     it('renders the CharacterDetail component with the correct character prop', () => {

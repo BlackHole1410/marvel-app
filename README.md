@@ -1,3 +1,14 @@
+# Installation
+
+npm install
+
+npm ci
+
+npm install d3@6
+
+npm install recharts
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
