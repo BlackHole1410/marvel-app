@@ -16,4 +16,5 @@ module.exports = {
   testpathIgnorePatterns: [
     "/e2e-tests/",
   ]
+  
 };
