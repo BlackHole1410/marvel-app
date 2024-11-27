@@ -1,11 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="C:\Dev logiciel web\S5\Marvel-app\marvel-app\src\components\D3PieChart.test.jsx">
-    <testCase name="D3PieChart renders D3PieChart with label and value" duration="49"/>
-  </file>
-  <file path="C:\Dev logiciel web\S5\Marvel-app\marvel-app\src\pages\CharacterDetailPage.test.jsx">
-    <testCase name="CharacterDetailPage renders without crashing" duration="46"/>
-    <testCase name="CharacterDetailPage displays the character name in the heading" duration="8"/>
-    <testCase name="CharacterDetailPage renders the CharacterDetail component with the correct character prop" duration="11"/>
-  </file>
 </testExecutions>
