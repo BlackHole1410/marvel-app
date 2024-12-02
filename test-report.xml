@@ -1,28 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="C:\Dev logiciel web\S5\Marvel-app\marvel-app\src\components\CharacterDetail.test.jsx">
-    <testCase name="CharacterDetail renders without crashing" duration="29"/>
-    <testCase name="CharacterDetail displays the character image with correct src and alt attributes" duration="31"/>
-    <testCase name="CharacterDetail displays the character description" duration="4"/>
-    <testCase name="CharacterDetail displays &quot;No description available.&quot; when description is not provided" duration="2"/>
-    <testCase name="CharacterDetail displays the character modification date" duration="3"/>
-    <testCase name="CharacterDetail displays &quot;No modification date available.&quot; when modification date is not provided" duration="1"/>
-  </file>
   <file path="C:\Dev logiciel web\S5\Marvel-app\marvel-app\src\components\CharactersList.test.jsx">
-    <testCase name="CharactersList renders an empty list when no characters are provided" duration="23"/>
-    <testCase name="CharactersList renders a list of characters" duration="16"/>
+    <testCase name="CharactersList renders an empty list when no characters are provided" duration="77"/>
+    <testCase name="CharactersList renders a list of characters" duration="17"/>
     <testCase name="CharactersList renders character names correctly" duration="4"/>
-    <testCase name="CharactersList applies correct styles to links" duration="21"/>
+    <testCase name="CharactersList applies correct styles to links" duration="20"/>
+    <testCase name="CharactersList renders the date in the correct format and displays &quot;Invalid Date&quot; if there is no date" duration="16"/>
   </file>
   <file path="C:\Dev logiciel web\S5\Marvel-app\marvel-app\src\pages\CharactersPage.test.jsx">
-    <testCase name="CharactersPage renders correctly with initial state" duration="52"/>
-    <testCase name="CharactersPage calls getSortedCharacters with correct parameters" duration="7"/>
-    <testCase name="CharactersPage updates URL and state when sort by is changed" duration="11"/>
-    <testCase name="CharactersPage updates URL and state when order is changed" duration="7"/>
-  </file>
-  <file path="C:\Dev logiciel web\S5\Marvel-app\marvel-app\src\pages\CharacterDetailPage.test.jsx">
-    <testCase name="CharacterDetailPage renders without crashing" duration="47"/>
-    <testCase name="CharacterDetailPage displays the character name in the heading" duration="7"/>
-    <testCase name="CharacterDetailPage renders the CharacterDetail component with the correct character prop" duration="11"/>
+    <testCase name="CharactersPage renders correctly with initial state" duration="45"/>
+    <testCase name="CharactersPage calls getSortedCharacters with correct parameters" duration="6"/>
+    <testCase name="CharactersPage updates URL and state when sort by is changed" duration="9"/>
+    <testCase name="CharactersPage updates URL and state when order is changed" duration="5"/>
   </file>
 </testExecutions>
