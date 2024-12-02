@@ -89,3 +89,9 @@ nav a:hover {
 nav a.active {
   color: salmon
 }
+/* hide footer on small screens */
+@media (max-width: 600px) {
+  footer {
+    display: none;
+  }
+}

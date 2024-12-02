@@ -1,3 +1,5 @@
+const { testIgnore } = require("./playwright.config.cjs");
+
 module.exports = {
   testEnvironment: "jsdom",
   transform: {
@@ -10,5 +12,9 @@ module.exports = {
   testResultsProcessor: 'jest-sonar-reporter',
   moduleNameMapper: {
     "d3": "<rootDir>/node_modules/d3/dist/d3.min.js",
-  }
+  },
+  testpathIgnorePatterns: [
+    "/e2e-tests/",
+  ]
+  
 };

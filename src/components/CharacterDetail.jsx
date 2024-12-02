@@ -1,9 +1,8 @@
-// src/components/CharacterDetail.jsx
-
 import React from 'react';
+import DateFormat from './DateFormat';
 
 const CharacterDetail = ({ character }) => {
-    const { description, thumbnail, modified} = character;
+    const { description, thumbnail, modified } = character;
 
     return (
         <div>
@@ -14,7 +13,7 @@ const CharacterDetail = ({ character }) => {
                 />
             )}
             <p>{description || "No description available."}</p>
-            <p>{modified || "No modification date available."}</p>
+            <p>{modified ? <DateFormat isoDate={modified} /> : "No modification date available."}</p>
         </div>
     );
 };
