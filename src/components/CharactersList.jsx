@@ -8,7 +8,7 @@ export function CharactersList({ characters = [] }) {
             {characters.map((character) => (
                 <li key={character.id}>
                     <Link to={`/characters/${character.id}`} style={{ color: '#333', textDecoration: 'none' }}>
-                        <strong>{character.name}</strong> - <small>{character.modified && <DateFormat isoDate={character.modified} />}</small>
+                        <strong>{character.name}</strong> - <small>{character.modified ? <DateFormat isoDate={character.modified} /> : 'Invalid Date'}</small>
                     </Link>
                 </li>
             ))}
