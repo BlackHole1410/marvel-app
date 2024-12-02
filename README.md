@@ -21,6 +21,13 @@ Currently, two official plugins are available:
 # Addition
 
 1.2.0 :
+
 We added 2 list to drop down list to filter ou list of charcters.
 
 And did tests to prevent our site of having to much bugs.
+
+1.5.0 :
+
+Changed the date into a more readable format.
+
+The dates now appear on the list.
