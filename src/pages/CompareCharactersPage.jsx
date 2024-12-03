@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { getCharacters } from '../api/characters-api';
 
 const CompareCharactersPage = () => {
     // change the title of the page
     document.title = "Compare | Marvel App";
 
-    // A supprimer, permet de rendre le composant fonctionnel dans un premier temps
-    const characters = [
-        {
-            name: '...'
-        },{
-            name: '---'
-        }
-    ]
-    // Fin de la partie à supprimer
+    const [characters, setCharacters] = useState([]);
+
+    useEffect(() => {
+        const fetchCharacters = async () => {
+            const charactersData = getCharacters();
+            setCharacters(charactersData);
+        };
+
+        fetchCharacters();
+    }, []);
 
     // transform the characters to array of label/value objects
     const options = characters.map((character, index) => ({
@@ -21,8 +23,8 @@ const CompareCharactersPage = () => {
     }));
 
     // set the default options to the first two characters
-    const [option1, setOption1] = React.useState(options[0]);
-    const [option2, setOption2] = React.useState(options[1]);
+    const [option1, setOption1] = useState(options[0] || {});
+    const [option2, setOption2] = useState(options[1] || {});
 
     const centerStyle = {
         textAlign: 'center',
@@ -59,11 +61,9 @@ const CompareCharactersPage = () => {
                 </select>
             </p>
 
-            { /* A supprimer, permet le voir comment récupérer les éléments selectionnés */ }
             <p style={centerStyle}>
-                {characters[option1.value].name} vs {characters[option2.value].name}
+                {characters[option1.value]?.name} vs {characters[option2.value]?.name}
             </p>
-            { /* Fin de la partie à supprimer */ }
         </>
     );
 };
