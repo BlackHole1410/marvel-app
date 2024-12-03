@@ -67,4 +67,22 @@ describe('CharactersList', () => {
             expect(linkStyle.textDecoration).toBe('none');
         });
     });
+
+    test('renders the date in the correct format and displays "Invalid Date" if there is no date', () => {
+        const characters = [
+            { id: 1, name: 'Iron Man', modified: '2023-01-01T00:00:00Z' },
+            { id: 2, name: 'Thor' },
+        ];
+        const { getByText } = render(
+            <Router>
+                <CharactersList characters={characters} />
+            </Router>
+        );
+
+        const ironManDate = getByText('Jan 1, 2023');
+        expect(ironManDate).toBeTruthy();
+
+        const thorDate = getByText('Invalid Date');
+        expect(thorDate).toBeTruthy();
+    });
 });

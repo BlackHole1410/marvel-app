@@ -33,7 +33,7 @@ describe('CharacterDetail', () => {
     it('displays the character modification date', () => {
         const character = { modified: '2023-01-01' };
         render(<CharacterDetail character={character} />);
-        const modified = screen.getByText('2023-01-01');
+        const modified = screen.getByText('Jan 1, 2023');
         expect(modified).toBeTruthy();
     });
 
