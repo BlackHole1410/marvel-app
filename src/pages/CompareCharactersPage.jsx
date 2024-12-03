@@ -7,25 +7,29 @@ const CompareCharactersPage = () => {
     document.title = "Compare | Marvel App";
 
     const [characters, setCharacters] = useState([]);
+    const [options, setOptions] = useState([]);
+    const [option1, setOption1] = useState({});
+    const [option2, setOption2] = useState({});
 
     useEffect(() => {
         const fetchCharacters = async () => {
-            const charactersData = getCharacters();
+            const charactersData = await getCharacters();
             setCharacters(charactersData);
+
+            // transform the characters to array of label/value objects
+            const options = charactersData.map((character, index) => ({
+                value: index,
+                label: character.name,
+            }));
+            setOptions(options);
+
+            // set the default options to "Captain America" and "Beast"
+            setOption1(options.find(option => option.label === "Captain America") || {});
+            setOption2(options.find(option => option.label === "Beast") || {});
         };
 
         fetchCharacters();
     }, []);
-
-    // transform the characters to array of label/value objects
-    const options = characters.map((character, index) => ({
-        value: index,
-        label: character.name,
-    }));
-
-    // set the default options to the first two characters
-    const [option1, setOption1] = useState(options[0] || {});
-    const [option2, setOption2] = useState(options[1] || {});
 
     const centerStyle = {
         textAlign: 'center',
@@ -45,9 +49,9 @@ const CompareCharactersPage = () => {
                     value={option1.value}
                     onChange={(event) => setOption1(options[event.target.value])}
                 >
-                    {options.map((option) => (
-                        <option key={option.value} value={option.value}>
-                            {option.label}
+                    {characters.map((character, index) => (
+                        <option key={index} value={index}>
+                            {character.name}
                         </option>
                     ))}
                 </select>&nbsp; {/* Fix the ambiguous spacing */}
@@ -57,9 +61,9 @@ const CompareCharactersPage = () => {
                     value={option2.value}
                     onChange={(event) => setOption2(options[event.target.value])}
                 >
-                    {options.map((option) => (
-                        <option key={option.value} value={option.value}>
-                            {option.label}
+                    {characters.map((character, index) => (
+                        <option key={index} value={index}>
+                            {character.name}
                         </option>
                     ))}
                 </select>
