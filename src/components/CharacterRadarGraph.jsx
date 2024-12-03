@@ -10,10 +10,10 @@ const CharacterRadarGraph = ({ character1 = {}, character2 = {} }) => {
     const data = [
         { subject: 'Force', A: capacities1.force || 0, B: capacities2.force || 0 },
         { subject: 'Intelligence', A: capacities1.intelligence || 0, B: capacities2.intelligence || 0 },
+        { subject: 'Durability', A: capacities1.durability || 0, B: capacities2.durability || 0 },
         { subject: 'Energy', A: capacities1.energy || 0, B: capacities2.energy || 0 },
         { subject: 'Speed', A: capacities1.speed || 0, B: capacities2.speed || 0 },
-        { subject: 'Durability', A: capacities1.durability || 0, B: capacities2.durability || 0 },
-        { subject: 'Fighting', A: capacities1.fighting || 0, B: capacities2.fighting || 0 },
+        { subject: 'Fighting Skills', A: capacities1.fighting || 0, B: capacities2.fighting || 0 },
     ];
 
     return (
