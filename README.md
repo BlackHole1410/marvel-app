@@ -31,3 +31,5 @@ And did tests to prevent our site of having to much bugs.
 Changed the date into a more readable format.
 
 The dates now appear on the list.
+
+Add the compare page to compare between your favorite heroes.
