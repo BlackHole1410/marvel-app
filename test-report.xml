@@ -1,3 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
+  <file path="C:\Dev logiciel web\S5\Marvel-app\marvel-app\src\components\CharacterRadarGraph.test.jsx">
+    <testCase name="CharacterRadarGraph renders without crashing" duration="53"/>
+    <testCase name="CharacterRadarGraph displays character names in the legend" duration="25"/>
+    <testCase name="CharacterRadarGraph displays correct data points for characters" duration="14"/>
+    <testCase name="CharacterRadarGraph handles empty capacities gracefully" duration="14"/>
+  </file>
+  <file path="C:\Dev logiciel web\S5\Marvel-app\marvel-app\src\pages\CompareCharactersPage.test.jsx">
+    <testCase name="CompareCharactersPage renders CompareCharactersPage and sets default options" duration="105"/>
+    <testCase name="CompareCharactersPage renders character options in select elements" duration="27"/>
+    <testCase name="CompareCharactersPage changes characters properly when new options are selected" duration="53"/>
+  </file>
 </testExecutions>
