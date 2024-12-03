@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getCharacters } from '../api/characters-api';
+import CharacterRadarGraph from '../components/CharacterRadarGraph';
 
 const CompareCharactersPage = () => {
     // change the title of the page
@@ -30,6 +31,9 @@ const CompareCharactersPage = () => {
         textAlign: 'center',
         width: 500,
     };
+
+    const selectedCharacter1 = characters[option1.value] || {};
+    const selectedCharacter2 = characters[option2.value] || {};
 
     return (
         <>
@@ -62,8 +66,10 @@ const CompareCharactersPage = () => {
             </p>
 
             <p style={centerStyle}>
-                {characters[option1.value]?.name} vs {characters[option2.value]?.name}
+                {selectedCharacter1.name} vs {selectedCharacter2.name}
             </p>
+
+            <CharacterRadarGraph character1={selectedCharacter1} character2={selectedCharacter2} />
         </>
     );
 };
