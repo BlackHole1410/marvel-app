@@ -6,6 +6,8 @@ import AboutPage from "./pages/AboutPage";
 import CharactersPage from "./pages/CharactersPage";
 import ContactPage from "./pages/ContactPage";
 import CharacterDetailPage from "./pages/CharacterDetailPage";
+import CompareCharactersPage from './pages/CompareCharactersPage';
+import { path } from 'd3';
 
 const routes = [
     {
@@ -15,6 +17,7 @@ const routes = [
             { path: "/", element: <CharactersPage />, loader: getCharacters },
             { path: "/about", element: <AboutPage /> },
             { path: "/contact", element: <ContactPage /> },
+            { path: "/compare", element: <CompareCharactersPage />, loader: getCharacters },
             {
                 path: "/characters/:id", // Updated path to match the URL
                 element: <CharacterDetailPage />,
